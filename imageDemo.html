@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>3D图文转换</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/public.css"> 
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/check.js"></script>
+  </head>
+<body>
+  <div class="row mt150">
+    <div class="container">
+      <div class="col-md-12">
+        <div class="col-md-4 imgBox">
+          <img src="images/11.jpg" alt="">
+          <div class="content">image1</div>
+        </div>
+        <div class="col-md-4 imgBox">
+          <img src="images/12.jpg" alt="">
+          <div class="content">image2</div>
+        </div>
+        <div class="col-md-4 imgBox">
+          <img src="images/13.jpg" alt="">
+          <div class="content">image3</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <style type="text/css">
+    .imgBox{
+      padding: 10px;
+      perspective: 1000px; /*3D视图效果*/
+      position:relative;
+    }
+    .imgBox img{
+      width: 100%;
+      height: 350px;
+      opacity:1;
+      transform: translateY(0) rotateX(0);
+      transition: all 0.6s ease-in-out 0s;
+    }
+    .imgBox:hover img{
+      transform: translateY(-100%) rotateX(90deg);
+      transform-origin: center bottom 0;
+      opacity:0;
+
+    }
+    .imgBox .content{
+      width: 350px;
+      height: 350px;
+      opacity: 0;
+      position: absolute;
+      top: 10px;left: 10px;
+      background-color: #ccc;
+      transition: all 1s ease-in-out 0s;
+    }
+    .imgBox:hover .content{
+      opacity: 1;
+    }
+  </style>
+</body>
+</html>

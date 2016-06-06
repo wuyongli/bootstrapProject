@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>倾斜侧边栏效果</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/public.css"> 
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+     -->
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/check.js"></script>
+    <!-- 引入字体 -->
+    <link rel='stylesheet prefetch' href='http://fonts.useso.com/css?family=Architects+Daughter'>
+</head>
+<body>
+  <div id="paper-back">
+    <div class="btn-close"><i class="icon-remove"></i></div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">About Us</a>
+      <a href="#">Our Work</a>
+      <a href="#">Contact</a>
+    </nav>
+  </div>
+  <div id="paper-window">
+    <div id="paper-font">
+      <div class="btn-open"><i class="icon-reorder"></i></div>
+      <div class="content">
+        <h1 style="margin:200px auto;text-align:center;">This is a demo</h1>
+      </div>
+    </div>
+  </div>
+  <style type="text/css">
+    *{
+      font-family: 'Architects Daughter', sans-serif;
+      padding: 0;margin: 0;
+    }
+    #paper-back{
+      padding-left: 15px;
+      background-color: #243040;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+    }
+    #paper-back .btn-close i{
+      line-height: 40px;
+      font-size: 35px;
+      color: #fff;
+    }
+    #paper-back nav a{
+      display: block;
+      text-decoration: none;
+      color: #fff;
+      font-size: 1.5em;
+      cursor: pointer;
+    }
+    #paper-window{
+      position: absolute;
+      z-index: 2;
+      width: 100vw;
+      height: 100vh;
+      overflow-x: hidden;
+      overflow-y: hidden;
+    } 
+    /*设置可点击透明元素后的元素*/
+    .clickle{
+      pointer-events: none;
+    }
+    #paper-window .btn-open i{
+      line-height: 40px;
+      font-size: 35px;
+      color: #333;
+    }
+    .div-open{
+      transform: rotate(10deg);
+      -ms-transform: rotate(10deg); /* IE 9 */
+      -webkit-transform: rotate(10deg); /* Safari and Chrome */
+    }
+    .div-close{
+      transform: rotate(0deg);
+      -ms-transform: rotate(0deg); /* IE 9 */
+      -webkit-transform: rotate(0deg); /* Safari and Chrome */
+    }
+    #paper-font {
+      padding-left: 15px;
+      width: 100vw;
+      height: 400vh;
+      pointer-events: auto;
+      position: relative;
+      z-index: 3;
+      background-color: #fff;
+      transition:all 0.5s;
+    }
+  </style>
+  <script type="text/javascript">
+      $(function(){
+        $('.btn-open').click(function(){
+          $('#paper-font').removeClass('div-close');
+          $('#paper-font').addClass('div-open');
+          $('#paper-window').addClass('clickle');
+        });
+        $('.btn-close').click(function(){
+          $('#paper-window').removeClass('clickle');
+          $('#paper-font').removeClass('div-open');
+          $('#paper-font').addClass('div-close');
+        });
+      });
+  </script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+$color:#333;      				//主体文本颜色
+$link-color:#fff; 				//链接颜色
+$link-hover-color:#ccc;			//
+$link-visited-color:#ccc;
+
+@mixin linkStyle{
+	a{
+		color: $link-color;
+		text-decoration: none;
+		&:hover{
+			color: $link-hover-color;
+			text-decoration: underline;
+		}
+	}
+}
+.div {
+	@include linkStyle;
+}
